@@ -54,6 +54,7 @@
         android:layout_alignParentLeft="true"
         android:paddingTop="20sp"
         android:paddingLeft="10sp"
+        android:textColor="@android:color/holo_red_light"
         />
     <View
         android:layout_below="@+id/message"
