@@ -76,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                messageTextView.setText("Copy text from clipboard");
+                textView.setText("");
+            }
+        });
     }
 
     private String findPhrase(String phrase) {
