@@ -80,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String findPhrase(String phrase) {
 
+        String result;
+
         // Initial content
         SpannableString content = new SpannableString(initialText);
 
@@ -87,17 +89,25 @@ public class MainActivity extends AppCompatActivity {
         int index = initialText.indexOf(phrase);
 
         //counter of phrase
-        
+        int phraseCounter = 0;
 
 
         while (index >= 0)
         {
+            phraseCounter++;
 
             content.setSpan(new BackgroundColorSpan(Color.YELLOW), index, index + phrase.length(), 0 );
             index = initialText.indexOf(phrase, index+1);
         }
 
         textView.setText(content);
-        return content.toString();
+        if (phraseCounter >= 1)
+        {
+            return String.format("Found %d phrases", phraseCounter);
+        }
+        else
+        {
+            return "Phrase not found";
+        }
     }
 }
