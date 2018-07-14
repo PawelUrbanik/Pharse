@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 messageTextView.setText("Copy text from clipboard");
-                textView.setText("");
+                textView.setHint("Copy text from clipboard");
             }
         });
     }
