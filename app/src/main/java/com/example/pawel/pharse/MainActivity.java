@@ -80,9 +80,23 @@ public class MainActivity extends AppCompatActivity {
 
     private String findPhrase(String phrase) {
 
+        // Initial content
         SpannableString content = new SpannableString(initialText);
 
-        content.setSpan(new BackgroundColorSpan(Color.CYAN), 0, 2,0);
+        //First phrase in text
+        int index = initialText.indexOf(phrase);
+
+        //counter of phrase
+        
+
+
+        while (index >= 0)
+        {
+
+            content.setSpan(new BackgroundColorSpan(Color.YELLOW), index, index + phrase.length(), 0 );
+            index = initialText.indexOf(phrase, index+1);
+        }
+
         textView.setText(content);
         return content.toString();
     }
