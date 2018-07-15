@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
 import android.view.View;
@@ -81,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                     builder.setTitle("What find?");
                     final EditText findPhrase = new EditText(MainActivity.this);
+                    findPhrase.setInputType(InputType.TYPE_CLASS_TEXT);
                     builder.setView(findPhrase);
                     builder.setPositiveButton("Find", new DialogInterface.OnClickListener() {
                         @Override
@@ -93,6 +95,12 @@ public class MainActivity extends AppCompatActivity {
                                 messageTextView.setText("No phrase selected");
                             }
 
+                        }
+                    });
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
                         }
                     });
                     builder.show();
@@ -122,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
         //counter of phrase
         int phraseCounter = 0;
+
 
 
         while (index >= 0)
